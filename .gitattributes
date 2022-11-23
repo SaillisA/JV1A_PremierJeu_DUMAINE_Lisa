@@ -1,3 +1,18 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 hello
+
+stock css
+
+.monstre {
+    display:flex;
+    flex-direction:column;
+    align-items: flex-end;
+    
+}
+
+.joueur{
+    display:flex;
+    flex-direction:column;
+    align-items: flex-start;
+}

@@ -8,12 +8,11 @@ afficheActionJoueur = document.getElementById("afficheActionJoueur");
 
 
 
-
-maDiv.onclick = function() {
+AttaqueClick.onclick = function() {
     pvMonstreActuel.innerHTML = parseInt(pvMonstreActuel.innerHTML)-10;
-    afficheActionMonstre.innerHTML = " Il a perdu 10 pv !";
-    
+    afficheActions.innerHTML = " Il a perdu 10 pv !";
+
     pvJoueurActuel.innerHTML = parseInt(pvJoueurActuel.innerHTML)-10;
-    afficheActionJoueur.innerHTML = " Vous avez perdu 10 pv !"
+    afficheActions.innerHTML = " Vous avez perdu 10 pv !"
 }
-// Exercice : débuggez ce script :)
+

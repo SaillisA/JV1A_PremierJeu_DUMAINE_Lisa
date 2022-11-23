@@ -1,14 +1,13 @@
 
-
-.monstre {
-    display:flex;
-    flex-direction:column;
-    align-items: flex-end;
-    
+affichageAction {
+    border-width: 3px;
+    border-style:double;
+    border-color:black;
 }
 
-.joueur{
-    display:flex;
-    flex-direction:column;
-    align-items: flex-start;
+
+
+#AttaqueClick {
+    display: flex;
+    justify-content: center;
 }
