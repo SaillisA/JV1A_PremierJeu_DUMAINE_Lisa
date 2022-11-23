@@ -3,9 +3,7 @@ main{
     border-width: 3px;
     border-style:inset;
     border-color:black;
-
-    box-sizing:border-box;
-    flex-grow: ;
+    height: 50vh;
 }
 
 
