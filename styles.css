@@ -1,13 +1,32 @@
-
-affichageAction {
+footer {
     border-width: 3px;
     border-style:double;
     border-color:black;
 }
 
+#aa{
+    border-width: 2px;
+    border-style:inset;
+    border-color:black;
 
+    display: flex;
+    justify-content: center;
+}
 
-#AttaqueClick {
+#al{
+    border-width: 2px;
+    border-style:inset;
+    border-color:black;
+
+    float: left;
+    width:70%;
+}
+
+#ac{
+    border-width: 2px;
+    border-style:inset;
+    border-color:black;
+
     display: flex;
     justify-content: center;
 }
