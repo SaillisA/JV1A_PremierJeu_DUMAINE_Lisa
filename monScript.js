@@ -1,5 +1,4 @@
 pvMonstre1 = document.getElementById("pvMonstre1");
-
 pvJoueur1 = document.getElementById("pvJoueur1");
 afficheActions = document.getElementById("afficheActions");
 
@@ -13,7 +12,14 @@ AttaqueClick.onclick = function() {
 
     if(cptTempsRiposte==0){
         pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
-        afficheActions.innerHTML = " Vous avez perdu 10 pv !";
+        afficheActions.innerHTML = "Le monstre1 attaque. Vous avez perdu 10 pv !";
+        
+        pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre2 attaque. Vous avez perdu 10 pv !";
+
+        pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre3 attaque. Vous avez perdu 10 pv !";
+
         cptTempsRiposte = 4;
     }
 }
