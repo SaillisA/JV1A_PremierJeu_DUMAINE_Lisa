@@ -17,17 +17,33 @@
 
         <footer>
             <affichageAction id="aa">
-                <div id="AttaqueClick">Attaque</div>
+                <button id="AttaqueClick" type="button">Attaque</button>
+                <button id="AttaqueSpeClick" type="button">Attaque spéciale</button>
+                <button id="DefenseClick" type="button">Défense</button>
             </affichageAction>
 
+            
             <affichageLecture id="al">
-                <div class="IA" id="afficheActions"></div>
+                <div id="afficheActions"></div>
             </affichageLecture>
 
-            <affichageCaract id="ac">
-                <div class="joueur">pv du joueur:</div>
-                <div class="joueur" id="pvJoueurActuel">100</div>
+
+            <affichageCaract id="ac" class="joueurs">
+                <div id="joueur1">Joueur 1:</div>
+                <div id="pvJoueur1">100</div>
+
+                <div id="joueur2">Joueur 2:</div>
+                <div id="pvJoueur2">100</div>
+
+                <div id="joueur3">Joueur 3:</div>
+                <div id="pvJoueur3">100</div>
+                
+                <div id="joueur4">Joueur 4:</div>
+                <div id="pvJoueur4">100</div>
+
             </affichageCaract>
+
+
         </footer>
     </body>
 </html>
