@@ -9,77 +9,99 @@ pvJoueur4 = document.getElementById("pvJoueur4");
 
 afficheActions = document.getElementById("afficheActions");
 
-var cptTempsRiposte = 4;
+var cptTourJoueur = 1           //Pour déterminer quel joueur joue
+var cptTempsRiposte = 4;        //Pour déterminer quand les monstres attaquent
+
 var joueurAlea = 0;
 var joueurCible = 0;
 
 
-
-AttaqueClick.onclick = function() {
-    pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
-    afficheActions.innerHTML = " Il a perdu 10 pv !";
+AttaqueClick.onclick = function() {     //fonction attaue des joueurs
+    afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer"
+    cibleJoueur()
     cptTempsRiposte = cptTempsRiposte -1;
-
+    cptTourJoueur = cptTourJoueur +1;
     if(cptTempsRiposte==0){
-
-        joueurCible=monstreCible()
-        if(joueurCible == 1){
-            pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 1 perd 10 pv !";
-        }
-        if(joueurCible == 2){
-            pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 2 perd 10 pv !";
-        }
-        if(joueurCible == 3){
-            pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 3 perd 10 pv !";
-        }
-        if(joueurCible == 4){
-            pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 4 perd 10 pv !";
-        }
-
-        joueurCible=monstreCible()
-        if(joueurCible == 1){
-            pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 1 perd 10 pv !";
-        }
-        if(joueurCible == 2){
-            pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 2 perd 10 pv !";
-        }
-        if(joueurCible == 3){
-            pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 3 perd 10 pv !";
-        }
-        if(joueurCible == 4){
-            pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 4 perd 10 pv !";
-        }
-
-        joueurCible=monstreCible()
-        if(joueurCible == 1){
-            pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 1 perd 10 pv !";
-        }
-        if(joueurCible == 2){
-            pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 2 perd 10 pv !";
-        }
-        if(joueurCible == 3){
-            pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 3 perd 10 pv !";
-        }
-        if(joueurCible == 4){
-            pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 4 perd 10 pv !";
-        }
-        cptTempsRiposte = 4;
+        monstreAttaque()
     }
 }
 
-function monstreCible(){
-    joueurAlea = Math.floor(Math.random() * 4) + 1;
-    return joueurAlea
+
+function cibleJoueur(){
+    monstre1.onclick = function (){
+        pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
+        afficheActions.innerHTML = "Monstre1 a perdu 10 pv !";
+    }
+    monstre2.onclick = function (){
+        pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
+        afficheActions.innerHTML = "Monstre2 a perdu 10 pv !";
+    }
+    monstre3.onclick = function (){
+        pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
+        afficheActions.innerHTML = "Monstre3 a perdu 10 pv !";
+    }
 }
+
+
+function monstreCible(){                //fonction pour déterminer quel cible est attqué aleatoirement
+    joueurAlea = Math.floor(Math.random() * 4) + 1;
+    return joueurAlea;
+}
+
+
+function monstreAttaque(){              //fonction pour l'attaque des monstres
+    joueurCible=monstreCible()
+    if(joueurCible == 1){
+        pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 1 perd 10 pv !";
+    };
+    if(joueurCible == 2){
+        pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 2 perd 10 pv !";
+    };
+    if(joueurCible == 3){
+        pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 3 perd 10 pv !";
+    };
+    if(joueurCible == 4){
+        pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 4 perd 10 pv !";
+    };
+
+    joueurCible=monstreCible()
+    if(joueurCible == 1){
+        pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 1 perd 10 pv !";
+    };
+    if(joueurCible == 2){
+        pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 2 perd 10 pv !";
+    };
+    if(joueurCible == 3){
+        pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 3 perd 10 pv !";
+    };
+    if(joueurCible == 4){
+        pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 4 perd 10 pv !";
+    };
+
+    joueurCible=monstreCible()
+    if(joueurCible == 1){
+        pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 1 perd 10 pv !";
+    };
+    if(joueurCible == 2){
+        pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 2 perd 10 pv !";
+    };
+    if(joueurCible == 3){
+        pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 3 perd 10 pv !";
+    };
+    if(joueurCible == 4){
+        pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
+        afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 4 perd 10 pv !";
+    };
+    cptTempsRiposte = 4;
+};
