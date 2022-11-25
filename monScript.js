@@ -16,7 +16,7 @@ var joueurAlea = 0;
 var joueurCible = 0;
 
 
-AttaqueClick.onclick = function() {     //fonction attaue des joueurs
+AttaqueClick.onclick = function() {     //fonction attaque des joueurs
     afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer"
     cibleJoueur()
     cptTempsRiposte = cptTempsRiposte -1;
