@@ -9,20 +9,23 @@ pvJoueur4 = document.getElementById("pvJoueur4");
 
 afficheActions = document.getElementById("afficheActions");
 
-var cptTourJoueur = 1           //Pour déterminer quel joueur joue
+var cptTourJoueur = 1;          //Pour déterminer quel joueur joue
 var cptTempsRiposte = 4;        //Pour déterminer quand les monstres attaquent
 
 var joueurAlea = 0;
 var joueurCible = 0;
 
+function narrateur(texte){
+    afficheActions.innerHTML=texte;
+}
 
 AttaqueClick.onclick = function() {     //fonction attaque des joueurs
-    afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer"
-    cibleJoueur()
+    afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
+    cibleJoueur();
     cptTempsRiposte = cptTempsRiposte -1;
     cptTourJoueur = cptTourJoueur +1;
     if(cptTempsRiposte==0){
-        monstreAttaque()
+        monstreAttaque();
     }
 }
 
@@ -30,15 +33,15 @@ AttaqueClick.onclick = function() {     //fonction attaque des joueurs
 function cibleJoueur(){
     monstre1.onclick = function (){
         pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
-        afficheActions.innerHTML = "Monstre1 a perdu 10 pv !";
+        setTimeout(narrateur("Monstre1 a perdu 10 pv !"),2000);
     }
     monstre2.onclick = function (){
         pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
-        afficheActions.innerHTML = "Monstre2 a perdu 10 pv !";
+        setTimeout(narrateur("Monstre2 a perdu 10 pv !"),2000);
     }
     monstre3.onclick = function (){
         pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
-        afficheActions.innerHTML = "Monstre3 a perdu 10 pv !";
+        setTimeout(narrateur("Monstre a perdu 10 pv !"),2000);
     }
 }
 
