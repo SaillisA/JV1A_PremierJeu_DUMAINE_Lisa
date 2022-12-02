@@ -18,14 +18,7 @@ var cptTempsRiposte = 4;        //Pour déterminer quand les monstres attaquent
 var joueurAlea = 0;
 var joueurCible = 0;
 
-
-AttaqueClick.onclick = function() {     //fonction attaque des joueurs
-    afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
-    cptTempsRiposte = cptTempsRiposte -1;
-    cptTourJoueur = cptTourJoueur +1;
-    cibleJoueur(cptTempsRiposte);
-}
-
+//////////////////////////////////////ATTAQUE//////////////////////////////////////
 
 function cibleJoueur(test){
     button1.disabled=false;
@@ -142,3 +135,14 @@ function monstre3Attaque(){
     };
     cptTempsRiposte = 4;
 };
+
+AttaqueClick.onclick = function() {     //fonction attaque des joueurs
+    afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
+    cptTempsRiposte = cptTempsRiposte -1;
+    cptTourJoueur = cptTourJoueur +1;
+    cibleJoueur(cptTempsRiposte);
+}
+
+//////////////////////////////////////DEFENSE//////////////////////////////////////
+
+//////////////////////////////////////ATTAQUE SPECIALE//////////////////////////////////////
