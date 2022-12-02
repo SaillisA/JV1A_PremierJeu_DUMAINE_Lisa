@@ -7,6 +7,10 @@ pvJoueur2 = document.getElementById("pvJoueur2");
 pvJoueur3 = document.getElementById("pvJoueur3");
 pvJoueur4 = document.getElementById("pvJoueur4");
 
+const button1 = document.getElementById('monstre1');
+const button2 = document.getElementById('monstre2');
+const button3 = document.getElementById('monstre3');
+
 afficheActions = document.getElementById("afficheActions");
 
 var cptTourJoueur = 1;          //Pour déterminer quel joueur joue
@@ -27,24 +31,37 @@ AttaqueClick.onclick = function() {     //fonction attaque des joueurs
     if(cptTempsRiposte==0){
         monstreAttaque();
     }
+    
 }
 
 
 function cibleJoueur(){
+    button1.disabled=false;
+    button2.disabled=false;
+    button3.disabled=false;
     monstre1.onclick = function (){
         pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
         setTimeout(narrateur("Monstre1 a perdu 10 pv !"),2000);
+        button1.disabled=true;
+        button2.disabled=true;
+        button3.disabled=true;
     }
     monstre2.onclick = function (){
         pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
         setTimeout(narrateur("Monstre2 a perdu 10 pv !"),2000);
+        button1.disabled=true;
+        button2.disabled=true;
+        button3.disabled=true;
     }
     monstre3.onclick = function (){
         pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
         setTimeout(narrateur("Monstre a perdu 10 pv !"),2000);
+        button1.disabled=true;
+        button2.disabled=true;
+        button3.disabled=true;
     }
-}
 
+    }
 
 function monstreCible(){                //fonction pour déterminer quel cible est attqué aleatoirement
     joueurAlea = Math.floor(Math.random() * 4) + 1;
