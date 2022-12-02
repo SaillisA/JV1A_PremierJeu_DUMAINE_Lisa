@@ -13,6 +13,7 @@ pvJoueur4 = document.getElementById("pvJoueur4");
 afficheActions = document.getElementById("afficheActions");
 
 var cptTourJoueur = 1;          //Pour déterminer quel joueur joue
+
 var cptTempsRiposte = 4;        //Pour déterminer quand les monstres attaquent
 
 var joueurAlea = 0;
@@ -71,10 +72,13 @@ function cibleJoueur(test){
     }
 }
 
+
+
 function monstreCible(){                //fonction pour déterminer quel cible est attqué aleatoirement
     joueurAlea = Math.floor(Math.random() * 4) + 1;
     return joueurAlea;
 }
+
 
 
 function monstre1Attaque(){              //fonction pour l'attaque des monstres
@@ -96,6 +100,8 @@ function monstre1Attaque(){              //fonction pour l'attaque des monstres
         afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 4 perd 10 pv !";
     };
 }
+
+
 function monstre2Attaque(){
     joueurCible=monstreCible()
     if(joueurCible == 1){
@@ -115,6 +121,8 @@ function monstre2Attaque(){
         afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 4 perd 10 pv !";
     };
 }
+
+
 function monstre3Attaque(){
     joueurCible=monstreCible()
     if(joueurCible == 1){
@@ -136,6 +144,8 @@ function monstre3Attaque(){
     cptTempsRiposte = 4;
 };
 
+
+
 AttaqueClick.onclick = function() {     //fonction attaque des joueurs
     afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
     cptTempsRiposte = cptTempsRiposte -1;
@@ -143,6 +153,42 @@ AttaqueClick.onclick = function() {     //fonction attaque des joueurs
     cibleJoueur(cptTempsRiposte);
 }
 
-//////////////////////////////////////DEFENSE//////////////////////////////////////
-
 //////////////////////////////////////ATTAQUE SPECIALE//////////////////////////////////////
+
+
+//////////////////////////////////////DEFENSE//////////////////////////////////////
+var joueur1defense = false;
+var joueur2defense = false;
+var joueur3defense = false;
+var joueur4defense = false;
+
+
+DefenseClick.onclick = function() {
+    if (cptTourJoueur == 1){
+        joueur1defense = true;
+        afficheActions.innerHTML = "Le joueur1 lève son bouclier pour parer la prochaine attaque des monstres !";
+        }
+    if (cptTourJoueur == 2){
+        joueur2defense =true;
+        afficheActions.innerHTML = "Le joueur2 lève son bouclier pour parer la prochaine attaque des monstres !";
+        }
+    if (cptTourJoueur == 3){
+        joueur3defense = true;
+        afficheActions.innerHTML = "Le joueur3 lève son bouclier pour parer la prochaine attaque des monstres !";
+        }
+    if (cptTourJoueur == 4){
+        joueur4defense = true;
+        afficheActions.innerHTML = "Le joueur4 lève son bouclier pour parer la prochaine attaque des monstres !";
+        }
+    cptTempsRiposte = cptTempsRiposte -1;
+    cptTourJoueur = cptTourJoueur +1;
+    if(cptTempsRiposte==0){
+        setTimeout(function(){
+            afficheActions.innerHTML = "Les monstres attaquent !";
+        }, 2000);
+        setTimeout(monstre1Attaque,4000);
+        setTimeout(monstre2Attaque,7000);
+        setTimeout(monstre3Attaque,10000);
+        cptTempsRiposte = 4;
+    }
+}
