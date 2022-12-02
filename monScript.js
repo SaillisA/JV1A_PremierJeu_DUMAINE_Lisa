@@ -33,38 +33,47 @@ function cibleJoueur(test){
     button3.disabled=false;
     monstre1.onclick = function (){
         pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
-        afficheActions = "Monstre1 a perdu 10 pv !";
+        afficheActions.innerHTML = "Monstre1 a perdu 10 pv !";
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
         if(test==0){
-            setTimeout(monstre1Attaque,2000);
-            setTimeout(monstre2Attaque,4000);
-            setTimeout(monstre3Attaque,6000);
+            setTimeout(function(){
+                afficheActions.innerHTML = "Les monstres attaquent !";
+            }, 2000);
+            setTimeout(monstre1Attaque,4000);
+            setTimeout(monstre2Attaque,7000);
+            setTimeout(monstre3Attaque,10000);
         }
     }
     monstre2.onclick = function (){
         pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
-        afficheActions = "Monstre2 a perdu 10 pv !";
+        afficheActions.innerHTML = "Monstre2 a perdu 10 pv !";
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
         if(test==0){
-            setTimeout(monstre1Attaque,2000);
-            setTimeout(monstre2Attaque,4000);
-            setTimeout(monstre3Attaque,6000);
+            setTimeout(function(){
+                afficheActions.innerHTML = "Les monstres attaquent !";
+            }, 2000);
+            setTimeout(monstre1Attaque,4000);
+            setTimeout(monstre2Attaque,7000);
+            setTimeout(monstre3Attaque,10000);
         }
     }
     monstre3.onclick = function (){
         pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
-        afficheActions = "Monstre a perdu 10 pv !";
+        afficheActions.innerHTML = "Monstre3 a perdu 10 pv !";
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
         if(test==0){
-            setTimeout(monstre1Attaque,2000);
-            setTimeout(monstre2Attaque,4000);
-            setTimeout(monstre3Attaque,6000);
+            setTimeout(function(){
+                afficheActions.innerHTML = "Les monstres attaquent !";
+            }, 2000);
+            setTimeout(monstre1Attaque,4000);
+            setTimeout(monstre2Attaque,7000);
+            setTimeout(monstre3Attaque,10000);
         }
     }
 }
