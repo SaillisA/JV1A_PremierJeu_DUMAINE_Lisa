@@ -1,3 +1,6 @@
+const button1 = document.getElementById('monstre1');
+const button2 = document.getElementById('monstre2');
+const button3 = document.getElementById('monstre3');
 pvMonstre1 = document.getElementById("pvMonstre1");
 pvMonstre2 = document.getElementById("pvMonstre2");
 pvMonstre3 = document.getElementById("pvMonstre3");
@@ -7,10 +10,6 @@ pvJoueur2 = document.getElementById("pvJoueur2");
 pvJoueur3 = document.getElementById("pvJoueur3");
 pvJoueur4 = document.getElementById("pvJoueur4");
 
-const button1 = document.getElementById('monstre1');
-const button2 = document.getElementById('monstre2');
-const button3 = document.getElementById('monstre3');
-
 afficheActions = document.getElementById("afficheActions");
 
 var cptTourJoueur = 1;          //Pour déterminer quel joueur joue
@@ -18,10 +17,6 @@ var cptTempsRiposte = 4;        //Pour déterminer quand les monstres attaquent
 
 var joueurAlea = 0;
 var joueurCible = 0;
-
-function narrateur(texte){
-    afficheActions.innerHTML=texte;
-}
 
 
 AttaqueClick.onclick = function() {     //fonction attaque des joueurs
@@ -38,32 +33,38 @@ function cibleJoueur(test){
     button3.disabled=false;
     monstre1.onclick = function (){
         pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
-        setTimeout(narrateur("Monstre1 a perdu 10 pv !"),2000);
+        afficheActions = "Monstre1 a perdu 10 pv !";
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
         if(test==0){
-            monstreAttaque();
+            setTimeout(monstre1Attaque,2000);
+            setTimeout(monstre2Attaque,4000);
+            setTimeout(monstre3Attaque,6000);
         }
     }
     monstre2.onclick = function (){
         pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
-        setTimeout(narrateur("Monstre2 a perdu 10 pv !"),2000);
+        afficheActions = "Monstre2 a perdu 10 pv !";
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
         if(test==0){
-            monstreAttaque();
+            setTimeout(monstre1Attaque,2000);
+            setTimeout(monstre2Attaque,4000);
+            setTimeout(monstre3Attaque,6000);
         }
     }
     monstre3.onclick = function (){
         pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
-        setTimeout(narrateur("Monstre a perdu 10 pv !"),2000);
+        afficheActions = "Monstre a perdu 10 pv !";
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
         if(test==0){
-            monstreAttaque();
+            setTimeout(monstre1Attaque,2000);
+            setTimeout(monstre2Attaque,4000);
+            setTimeout(monstre3Attaque,6000);
         }
     }
 }
@@ -74,7 +75,7 @@ function monstreCible(){                //fonction pour déterminer quel cible e
 }
 
 
-function monstreAttaque(){              //fonction pour l'attaque des monstres
+function monstre1Attaque(){              //fonction pour l'attaque des monstres
     joueurCible=monstreCible()
     if(joueurCible == 1){
         pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
@@ -92,7 +93,8 @@ function monstreAttaque(){              //fonction pour l'attaque des monstres
         pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
         afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 4 perd 10 pv !";
     };
-
+}
+function monstre2Attaque(){
     joueurCible=monstreCible()
     if(joueurCible == 1){
         pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
@@ -110,7 +112,8 @@ function monstreAttaque(){              //fonction pour l'attaque des monstres
         pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
         afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 4 perd 10 pv !";
     };
-
+}
+function monstre3Attaque(){
     joueurCible=monstreCible()
     if(joueurCible == 1){
         pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
