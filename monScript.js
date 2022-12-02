@@ -23,19 +23,16 @@ function narrateur(texte){
     afficheActions.innerHTML=texte;
 }
 
+
 AttaqueClick.onclick = function() {     //fonction attaque des joueurs
     afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
-    cibleJoueur();
     cptTempsRiposte = cptTempsRiposte -1;
     cptTourJoueur = cptTourJoueur +1;
-    if(cptTempsRiposte==0){
-        monstreAttaque();
-    }
-    
+    cibleJoueur(cptTempsRiposte);
 }
 
 
-function cibleJoueur(){
+function cibleJoueur(test){
     button1.disabled=false;
     button2.disabled=false;
     button3.disabled=false;
@@ -45,6 +42,9 @@ function cibleJoueur(){
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
+        if(test==0){
+            monstreAttaque();
+        }
     }
     monstre2.onclick = function (){
         pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
@@ -52,6 +52,9 @@ function cibleJoueur(){
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
+        if(test==0){
+            monstreAttaque();
+        }
     }
     monstre3.onclick = function (){
         pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
@@ -59,9 +62,11 @@ function cibleJoueur(){
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
+        if(test==0){
+            monstreAttaque();
+        }
     }
-
-    }
+}
 
 function monstreCible(){                //fonction pour déterminer quel cible est attqué aleatoirement
     joueurAlea = Math.floor(Math.random() * 4) + 1;
