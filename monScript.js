@@ -66,7 +66,6 @@ function cibleJoueur(test){
                 afficheActions.innerHTML = "Le joueur4 attaque le monstre1,il perd 10 pv !";
             }
         }
-
         cptTempsRiposte = cptTempsRiposte -1;
         cptTourJoueur = cptTourJoueur +1;
 
@@ -80,6 +79,8 @@ function cibleJoueur(test){
             setTimeout(monstre1Attaque,4000);
             setTimeout(monstre2Attaque,7000);
             setTimeout(monstre3Attaque,10000);
+            cptTempsRiposte = 4;
+            cptTourJoueur = 1;
         }
     }
     monstre2.onclick = function (){
@@ -136,6 +137,8 @@ function cibleJoueur(test){
             setTimeout(monstre1Attaque,4000);
             setTimeout(monstre2Attaque,7000);
             setTimeout(monstre3Attaque,10000);
+            cptTempsRiposte = 4;
+            cptTourJoueur = 1;
         }
     }
 
@@ -193,6 +196,8 @@ function cibleJoueur(test){
             setTimeout(monstre1Attaque,4000);
             setTimeout(monstre2Attaque,7000);
             setTimeout(monstre3Attaque,10000);
+            cptTempsRiposte = 4;
+            cptTourJoueur = 1;
         }
     }
 }
