@@ -10,6 +10,12 @@ pvJoueur2 = document.getElementById("pvJoueur2");
 pvJoueur3 = document.getElementById("pvJoueur3");
 pvJoueur4 = document.getElementById("pvJoueur4");
 
+manaJoueur1 = document.getElementById("manaJoueur1");
+manaJoueur2 = document.getElementById("manaJoueur2");
+manaJoueur3 = document.getElementById("manaJoueur3");
+manaJoueur4 = document.getElementById("manaJoueur4");
+
+
 afficheActions = document.getElementById("afficheActions");
 
 var cptTourJoueur = 1;          //Pour déterminer quel joueur joue
@@ -348,21 +354,36 @@ joueur4AttaqueSpe = false;
 
 AttaqueSpeClick.onclick= function(){
     if (cptTourJoueur == 1){
-        joueur1AttaqueSpe = true;
+        if((manaJoueur1)-15<0){
+            manaJoueur1.innerHTML = parseInt(manaJoueur1.innerHTML) - 15;
+            joueur1AttaqueSpe = true;
+            cibleJoueur();
+        }
     }
     if(cptTourJoueur == 2){
-        joueur2AttaqueSpe = true;
-
+        if((manaJoueur2)-15<0){
+            manaJoueur2.innerHTML = parseInt(manaJoueur2.innerHTML) - 15;
+            joueur2AttaqueSpe = true;
+            cibleJoueur();
+        }
     }
     if(cptTourJoueur == 3){
-        joueur3AttaqueSpe = true;
+        if((manaJoueur3)-15<0){
+            manaJoueur3.innerHTML = parseInt(manaJoueur3.innerHTML) - 15;
+            joueur3AttaqueSpe = true;
+            cibleJoueur();
+        }
 
     }
     if(cptTourJoueur == 40){
-        joueur4AttaqueSpe = true;
+        if((manaJoueur4)-15<0){
+            manaJoueur4.innerHTML = parseInt(manaJoueur4.innerHTML) - 15;
+            joueur4AttaqueSpe = true;
+            cibleJoueur();
+        }
 
     }
-    cibleJoueur()
+    
 }
 
 
