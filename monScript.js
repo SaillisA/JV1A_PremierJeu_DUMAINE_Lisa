@@ -1,11 +1,17 @@
 const button1 = document.getElementById('monstre1');
 const button2 = document.getElementById('monstre2');
 const button3 = document.getElementById('monstre3');
-const button4 = document.getElementById('AttaqueSpeClick')
+const button4 = document.getElementById('AttaqueClick')
+const button5 = document.getElementById('AttaqueSpeClick');
+const button6 = document.getElementById('DefenseClick');
 
 pvMonstre1 = document.getElementById("pvMonstre1");
 pvMonstre2 = document.getElementById("pvMonstre2");
 pvMonstre3 = document.getElementById("pvMonstre3");
+
+var monstre1Etat = true;
+var monstre2Etat = true;
+var monstre3Etat = true;
 
 pvJoueur1 = document.getElementById("pvJoueur1");
 pvJoueur2 = document.getElementById("pvJoueur2");
@@ -25,9 +31,10 @@ var joueurCible = 0;
 //////////////////////////////////////ATTAQUE//////////////////////////////////////
 
 function cibleJoueur(test){
-    button1.disabled=false;
-    button2.disabled=false;
-    button3.disabled=false;
+    if(monstre1Etat == true){button1.disabled=false};
+    if(monstre2Etat == true){button2.disabled=false};
+    if(monstre3Etat == true){button3.disabled=false};
+
     monstre1.onclick = function (){
         if(cptTourJoueur == 1){
             if(joueur1AttaqueSpe ==true){
@@ -79,6 +86,13 @@ function cibleJoueur(test){
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
+        var pvM1 = parseInt(pvMonstre1.innerHTML)
+        if(pvM1<=0){
+            monstre1Etat = false;
+            pvMonstre1.innerHTML = "0";
+            afficheActions.innerHTML = "Le monstre 1 est dead";
+        }
+
         if(cptTempsRiposte==0){
             setTimeout(function(){
                 afficheActions.innerHTML = "Les monstres attaquent !";
@@ -90,6 +104,7 @@ function cibleJoueur(test){
             cptTourJoueur = 1;
         }
     }
+
     monstre2.onclick = function (){
         if(cptTourJoueur == 1){
             if(joueur1AttaqueSpe ==true){
@@ -141,6 +156,12 @@ function cibleJoueur(test){
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
+        var pvM2= parseInt(pvMonstre2.innerHTML)
+        if(pvM2<=0){
+            monstre2Etat = false;
+            pvMonstre2.innerHTML = "0";
+            afficheActions.innerHTML = "Le monstre 2 est dead";
+        }
         if(cptTempsRiposte==0){
             setTimeout(function(){
                 afficheActions.innerHTML = "Les monstres attaquent !";
@@ -204,6 +225,12 @@ function cibleJoueur(test){
         button1.disabled=true;
         button2.disabled=true;
         button3.disabled=true;
+        var pvM3 = parseInt(pvMonstre3.innerHTML)
+        if(pvM3<=0){
+            monstre3Etat = false;
+            pvMonstre3.innerHTML = "0";
+            afficheActions.innerHTML = "Le monstre 3 est dead";
+        }
         if(cptTempsRiposte==0){
             setTimeout(function(){
                 afficheActions.innerHTML = "Les monstres attaquent !";
@@ -214,6 +241,9 @@ function cibleJoueur(test){
             cptTempsRiposte = 4;
             cptTourJoueur = 1;
         }
+    }
+    if(monstre1Etat == false && monstre2Etat == false && monstre3Etat == false){
+        victoire()
     }
 }
 
@@ -228,81 +258,85 @@ function monstreCible(){                //fonction pour déterminer quel cible e
 
 function monstre1Attaque(){              //fonction pour l'attaque des monstres
     joueurCible=monstreCible()
-    if(joueurCible == 1){
-        if(joueur1defense == false){
-            pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 1 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML = 'Le joueur1 a reussit a se défendre ';
-        }
-    };
-    if(joueurCible == 2){
-        if(joueur2defense == false){
-            pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 2 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML = 'Le joueur 2 a reussit a se defendre';
-        }
-    };
-    if(joueurCible == 3){
-        if(joueur3defense == false){
-            pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 3 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML = 'Le joueu3 a reussit a se defendre';
-        }
-    };
-    if(joueurCible == 4){
-        if(joueur4defense == false){
-            pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 4 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML= 'Le joueur4 a reussit a se defendre';
-        }
-    };
+    if(monstre1Etat == true){
+        if(joueurCible == 1){
+            if(joueur1defense == false){
+                pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
+                afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 1 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML = 'Le joueur1 a reussit a se défendre ';
+            }
+        };
+        if(joueurCible == 2){
+            if(joueur2defense == false){
+                pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
+                afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 2 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML = 'Le joueur 2 a reussit a se defendre';
+            }
+        };
+        if(joueurCible == 3){
+            if(joueur3defense == false){
+                pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
+                afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 3 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML = 'Le joueu3 a reussit a se defendre';
+            }
+        };
+        if(joueurCible == 4){
+            if(joueur4defense == false){
+                pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
+                afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 4 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML= 'Le joueur4 a reussit a se defendre';
+            }
+        };
+    }
 }
 
 
 function monstre2Attaque(){
     joueurCible=monstreCible()
-    if(joueurCible == 1){
-        if(joueur1defense == false){
-            pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 1 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML = 'Le joueur1 a reussit a se défendre ';
-        }
-    };
-    if(joueurCible == 2){
-        if(joueur2defense == false){
-            pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 2 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML = 'Le joueur 2 a reussit a se defendre';
-        }
-    };
-    if(joueurCible == 3){
-        if(joueur3defense == false){
-            pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 3 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML = 'Le joueu3 a reussit a se defendre';
-        }
-    };
-    if(joueurCible == 4){
-        if(joueur4defense == false){
-        pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
-        afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 4 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML= 'Le joueur4 a reussit a se defendre';
+    if(monstre2Etat == true){
+        if(joueurCible == 1){
+            if(joueur1defense == false){
+                pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
+                afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 1 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML = 'Le joueur1 a reussit a se défendre ';
+            }
+        };
+        if(joueurCible == 2){
+            if(joueur2defense == false){
+                pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
+                afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 2 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML = 'Le joueur 2 a reussit a se defendre';
+            }
+        };
+        if(joueurCible == 3){
+            if(joueur3defense == false){
+                pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
+                afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 3 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML = 'Le joueu3 a reussit a se defendre';
+            }
+        };
+        if(joueurCible == 4){
+            if(joueur4defense == false){
+            pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
+            afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 4 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML= 'Le joueur4 a reussit a se defendre';
+            }
         }
     }
 }
@@ -310,42 +344,44 @@ function monstre2Attaque(){
 
 function monstre3Attaque(){
     joueurCible=monstreCible()
-    if(joueurCible == 1){
-        if(joueur1defense == false){
-            pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 1 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML = 'Le joueur1 a reussit a se défendre ';
-        }
-    };
-    if(joueurCible == 2){
-        if(joueur2defense == false){
-            pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 2 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML = 'Le joueur 2 a reussit a se defendre';
-        }
-    };
-    if(joueurCible == 3){
-        if(joueur3defense == false){
-            pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 3 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML = 'Le joueu3 a reussit a se defendre';
-        }
-    };
-    if(joueurCible == 4){
-        if(joueur4defense == false){
-        pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
-        afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 4 perd 10 pv !";
-        }
-        else{
-            afficheActions.innerHTML= 'Le joueur4 a reussit a se defendre';
-        }
-    };
+    if(monstre3Etat == true){
+        if(joueurCible == 1){
+            if(joueur1defense == false){
+                pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
+                afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 1 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML = 'Le joueur1 a reussit a se défendre ';
+            }
+        };
+        if(joueurCible == 2){
+            if(joueur2defense == false){
+                pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
+                afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 2 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML = 'Le joueur 2 a reussit a se defendre';
+            }
+        };
+        if(joueurCible == 3){
+            if(joueur3defense == false){
+                pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
+                afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 3 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML = 'Le joueu3 a reussit a se defendre';
+            }
+        };
+        if(joueurCible == 4){
+            if(joueur4defense == false){
+            pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
+            afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 4 perd 10 pv !";
+            }
+            else{
+                afficheActions.innerHTML= 'Le joueur4 a reussit a se defendre';
+            }
+        };
+    }
     cptTempsRiposte = 4;
 };
 
@@ -456,4 +492,8 @@ DefenseClick.onclick = function() {
         cptTempsRiposte = 4;
         cptTourJoueur = 1;
     }
+}
+
+function victoire(){
+    afficheActions.innerHTML = 'VOUS AVEZ GAGNE'
 }
