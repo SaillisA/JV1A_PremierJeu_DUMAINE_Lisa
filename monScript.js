@@ -28,6 +28,10 @@ var cptTempsRiposte = 4;        //Pour déterminer quand les monstres attaquent
 var joueurAlea = 0;
 var joueurCible = 0;
 
+function victoire(){
+    afficheActions.innerHTML = 'VOUS AVEZ GAGNE'
+}
+
 //////////////////////////////////////ATTAQUE//////////////////////////////////////
 
 function cibleJoueur(test){
@@ -492,8 +496,4 @@ DefenseClick.onclick = function() {
         cptTempsRiposte = 4;
         cptTourJoueur = 1;
     }
-}
-
-function victoire(){
-    afficheActions.innerHTML = 'VOUS AVEZ GAGNE'
 }
