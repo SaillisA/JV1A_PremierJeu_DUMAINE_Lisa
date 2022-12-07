@@ -1,6 +1,8 @@
 const button1 = document.getElementById('monstre1');
 const button2 = document.getElementById('monstre2');
 const button3 = document.getElementById('monstre3');
+const button4 = document.getElementById('AttaqueSpeClick')
+
 pvMonstre1 = document.getElementById("pvMonstre1");
 pvMonstre2 = document.getElementById("pvMonstre2");
 pvMonstre3 = document.getElementById("pvMonstre3");
@@ -353,37 +355,30 @@ joueur3AttaqueSpe = false;
 joueur4AttaqueSpe = false;
 
 AttaqueSpeClick.onclick= function(){
+
     if (cptTourJoueur == 1){
-        if((manaJoueur1)-15<0){
-            manaJoueur1.innerHTML = parseInt(manaJoueur1.innerHTML) - 15;
-            joueur1AttaqueSpe = true;
-            cibleJoueur();
-        }
+        manaJoueur1.innerHTML = parseInt(manaJoueur1.innerHTML) - 15;
+        joueur1AttaqueSpe = true;
+        cibleJoueur();
+        
     }
     if(cptTourJoueur == 2){
-        if((manaJoueur2)-15<0){
-            manaJoueur2.innerHTML = parseInt(manaJoueur2.innerHTML) - 15;
-            joueur2AttaqueSpe = true;
-            cibleJoueur();
-        }
+        manaJoueur2.innerHTML = parseInt(manaJoueur2.innerHTML) - 15;
+        joueur2AttaqueSpe = true;
+        cibleJoueur();
     }
     if(cptTourJoueur == 3){
-        if((manaJoueur3)-15<0){
-            manaJoueur3.innerHTML = parseInt(manaJoueur3.innerHTML) - 15;
-            joueur3AttaqueSpe = true;
-            cibleJoueur();
-        }
+        manaJoueur3.innerHTML = parseInt(manaJoueur3.innerHTML) - 15;
+        joueur3AttaqueSpe = true;
+        cibleJoueur();
 
     }
-    if(cptTourJoueur == 40){
-        if((manaJoueur4)-15<0){
-            manaJoueur4.innerHTML = parseInt(manaJoueur4.innerHTML) - 15;
-            joueur4AttaqueSpe = true;
-            cibleJoueur();
-        }
+    if(cptTourJoueur == 4){
+        manaJoueur4.innerHTML = parseInt(manaJoueur4.innerHTML) - 15;
+        joueur4AttaqueSpe = true;
+        cibleJoueur();
 
     }
-    
 }
 
 
@@ -421,5 +416,6 @@ DefenseClick.onclick = function() {
         setTimeout(monstre2Attaque,7000);
         setTimeout(monstre3Attaque,10000);
         cptTempsRiposte = 4;
+        cptTourJoueur = 1;
     }
 }
