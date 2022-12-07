@@ -12,11 +12,6 @@ pvJoueur2 = document.getElementById("pvJoueur2");
 pvJoueur3 = document.getElementById("pvJoueur3");
 pvJoueur4 = document.getElementById("pvJoueur4");
 
-manaJoueur1 = document.getElementById("manaJoueur1");
-manaJoueur2 = document.getElementById("manaJoueur2");
-manaJoueur3 = document.getElementById("manaJoueur3");
-manaJoueur4 = document.getElementById("manaJoueur4");
-
 
 afficheActions = document.getElementById("afficheActions");
 
@@ -38,6 +33,7 @@ function cibleJoueur(test){
             if(joueur1AttaqueSpe ==true){
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur1 utilise son attaque spéciale. Le monstre1 perd 20 pv !";
+                Joueur1AttaqueSpe = false;
             }
             else {
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
@@ -48,6 +44,7 @@ function cibleJoueur(test){
             if(joueur2AttaqueSpe ==true){
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur2 utilise son attaque spéciale. Le monstre1 perd 20 pv !";
+                Joueur2AttaqueSpe = false;
             }
             else {
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
@@ -58,6 +55,7 @@ function cibleJoueur(test){
             if(joueur3AttaqueSpe ==true){
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur3 utilise son attaque spéciale. Le monstre1 perd 20 pv !";
+                Joueur3AttaqueSpe = false;
             }
             else {
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
@@ -68,6 +66,7 @@ function cibleJoueur(test){
             if(joueur4AttaqueSpe ==true){
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur4 utilise son attaque spéciale. Le monstre1 perd 20 pv !";
+                Joueur4AttaqueSpe = false;
             }
             else {
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
@@ -96,6 +95,7 @@ function cibleJoueur(test){
             if(joueur1AttaqueSpe ==true){
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur1 utilise son attaque spéciale. Le monstre2 perd 20 pv !";
+                Joueur1AttaqueSpe = false;
             }
             else {
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
@@ -106,6 +106,7 @@ function cibleJoueur(test){
             if(joueur2AttaqueSpe ==true){
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur2 utilise son attaque spéciale. Le monstre2 perd 20 pv !";
+                Joueur2AttaqueSpe = false;
             }
             else {
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
@@ -116,6 +117,7 @@ function cibleJoueur(test){
             if(joueur3AttaqueSpe ==true){
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur3 utilise son attaque spéciale. Le monstre2 perd 20 pv !";
+                Joueur3AttaqueSpe = false;
             }
             else {
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
@@ -126,6 +128,7 @@ function cibleJoueur(test){
             if(joueur4AttaqueSpe ==true){
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur4 utilise son attaque spéciale. Le monstre2 perd 20 pv !";
+                Joueur4AttaqueSpe = false;
             }
             else {
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
@@ -155,6 +158,7 @@ function cibleJoueur(test){
             if(joueur1AttaqueSpe ==true){
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur1 utilise son attaque spéciale. Le monstre3 perd 20 pv !";
+                Joueur1AttaqueSpe = false;
             }
             else {
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
@@ -165,6 +169,7 @@ function cibleJoueur(test){
             if(joueur2AttaqueSpe ==true){
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur2 utilise son attaque spéciale. Le monstre3 perd 20 pv !";
+                Joueur2AttaqueSpe = false;
             }
             else {
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
@@ -175,6 +180,7 @@ function cibleJoueur(test){
             if(joueur3AttaqueSpe ==true){
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur3 utilise son attaque spéciale. Le monstre3 perd 20 pv !";
+                Joueur3AttaqueSpe = false;
             }
             else {
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
@@ -185,6 +191,7 @@ function cibleJoueur(test){
             if(joueur4AttaqueSpe ==true){
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur4 utilise son attaque spéciale. Le monstre3 perd 20 pv !";
+                Joueur4AttaqueSpe = false;
             }
             else {
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
@@ -349,35 +356,66 @@ AttaqueClick.onclick = function() {     //fonction attaque des joueurs
 }
 
 //////////////////////////////////////ATTAQUE SPECIALE//////////////////////////////////////
+manaJoueur1Affiche = document.getElementById("manaJ1");
+manaJoueur2Affiche = document.getElementById("manaJ2");
+manaJoueur3Affiche = document.getElementById("manaJ3");
+manaJoueur4Affiche = document.getElementById("manaJ4");
+
+
+
 joueur1AttaqueSpe = false;
 joueur2AttaqueSpe = false;
 joueur3AttaqueSpe = false;
 joueur4AttaqueSpe = false;
 
 AttaqueSpeClick.onclick= function(){
-
+    var joueur1Mana = parseInt(manaJoueur1Affiche.innerHTML)
+    var joueur2Mana = parseInt(manaJoueur2Affiche.innerHTML)
+    var joueur3Mana = parseInt(manaJoueur3Affiche.innerHTML)
+    var joueur4Mana = parseInt(manaJoueur4Affiche.innerHTML)
     if (cptTourJoueur == 1){
-        manaJoueur1.innerHTML = parseInt(manaJoueur1.innerHTML) - 15;
-        joueur1AttaqueSpe = true;
-        cibleJoueur();
-        
+        if(joueur1Mana>=15){
+            manaJoueur1Affiche.innerHTML = parseInt(manaJoueur1Affiche.innerHTML) - 15;
+            joueur1AttaqueSpe = true;
+            afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
+            cibleJoueur();
+        }
+        else{
+            afficheActions.innerHTML="Vous n'avez pas assez de PM, choisissez une autrea action"
+        }
     }
     if(cptTourJoueur == 2){
-        manaJoueur2.innerHTML = parseInt(manaJoueur2.innerHTML) - 15;
-        joueur2AttaqueSpe = true;
-        cibleJoueur();
+        if(joueur2Mana>=15){
+            manaJoueur2Affiche.innerHTML = parseInt(manaJoueur2Affiche.innerHTML) - 15;
+            joueur2AttaqueSpe = true;
+            afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
+            cibleJoueur();
+        }
+        else{
+            afficheActions.innerHTML="Vous n'avez pas assez de PM, choisissez une autrea action"
+        }
     }
     if(cptTourJoueur == 3){
-        manaJoueur3.innerHTML = parseInt(manaJoueur3.innerHTML) - 15;
-        joueur3AttaqueSpe = true;
-        cibleJoueur();
-
+        if(joueur3Mana>=15){
+            manaJoueur3Affiche.innerHTML = parseInt(manaJoueur3Affiche.innerHTML) - 15;
+            joueur3AttaqueSpe = true;
+            afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
+            cibleJoueur();
+        }
+        else{
+            afficheActions.innerHTML="Vous n'avez pas assez de PM, choisissez une autrea action"
+        }
     }
     if(cptTourJoueur == 4){
-        manaJoueur4.innerHTML = parseInt(manaJoueur4.innerHTML) - 15;
-        joueur4AttaqueSpe = true;
-        cibleJoueur();
-
+        if(joueur4Mana>=15){
+            manaJoueur4Affiche.innerHTML = parseInt(manaJoueur4Affiche.innerHTML) - 15;
+            joueur4AttaqueSpe = true;
+            afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
+            cibleJoueur();
+        }
+        else{
+            afficheActions.innerHTML="Vous n'avez pas assez de PM, choisissez une autrea action"
+        }
     }
 }
 
