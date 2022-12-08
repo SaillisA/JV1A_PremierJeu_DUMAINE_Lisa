@@ -32,6 +32,7 @@ function victoire(){
     afficheActions.innerHTML = 'VOUS AVEZ GAGNE'
 }
 
+
 //////////////////////////////////////ATTAQUE//////////////////////////////////////
 
 function cibleJoueur(test){

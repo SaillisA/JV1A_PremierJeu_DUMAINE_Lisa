@@ -3,7 +3,19 @@ main{
     border-width: 3px;
     border-style:inset;
     border-color:black;
-    height: 50vh;
+    height: 70vh;
+
+    background-color: antiquewhite;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heros{
+    display: flex;
+    flex-direction: column;
 }
 
 
