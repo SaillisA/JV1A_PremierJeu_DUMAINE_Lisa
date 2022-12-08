@@ -5,7 +5,9 @@ main{
     border-color:black;
     height: 70vh;
 
-    background-color: antiquewhite;
+    background-image: url('backpack.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 
     display: flex;
     flex-wrap: wrap;
@@ -16,8 +18,52 @@ main{
 .heros{
     display: flex;
     flex-direction: column;
+    
 }
 
+#cb{
+    position: relative;
+    left: 100px;
+    top:150px;
+}
+
+#cn{
+    position: relative;
+    right: 150px;
+}
+
+
+#pchit{
+    position: relative;
+    right: 100px;
+    bottom: 5%;
+}
+#monstre3{
+    position: relative;
+    right: 110px;
+    bottom: 5%;
+}
+
+#aspi{
+    position: relative;
+    top: 30px;
+}
+#monstre2{
+    position: relative;
+    top: 30px;
+    right:50px;
+}
+
+#pel{
+    position: relative;
+    right: 100px;
+    top:30%;
+}
+#monstre1{
+    position: relative;
+    right: 110px;
+    top:30%;
+}
 
 footer {
     border-width: 3px;
