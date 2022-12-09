@@ -32,6 +32,17 @@ main{
     right: 150px;
 }
 
+#cm{
+    position:relative;
+    left:200px;
+    bottom:20%;
+}
+
+#cr{
+    position:relative;
+    left:1px;
+    bottom:300px;
+}
 
 #pchit{
     position: relative;
@@ -40,8 +51,8 @@ main{
 }
 #monstre3{
     position: relative;
-    right: 110px;
-    bottom: 5%;
+    right: 227px;
+    bottom: 5px;
 }
 
 #aspi{
@@ -50,8 +61,8 @@ main{
 }
 #monstre2{
     position: relative;
-    top: 30px;
-    right:50px;
+    top: 40px;
+    right:135px;
 }
 
 #pel{
@@ -61,8 +72,8 @@ main{
 }
 #monstre1{
     position: relative;
-    right: 110px;
-    top:30%;
+    right: 214px;
+    top:35%;
 }
 
 footer {
