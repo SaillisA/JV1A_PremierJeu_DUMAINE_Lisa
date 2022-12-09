@@ -18,6 +18,10 @@ pvJoueur2 = document.getElementById("pvJoueur2");
 pvJoueur3 = document.getElementById("pvJoueur3");
 pvJoueur4 = document.getElementById("pvJoueur4");
 
+var etatJ1 = true;
+var etatJ2 = true;
+var etatJ3 = true;
+var etatJ4 = true;
 
 afficheActions = document.getElementById("afficheActions");
 
@@ -30,9 +34,23 @@ var joueurCible = 0;
 
 function victoire(){
     afficheActions.innerHTML = 'VOUS AVEZ GAGNE'
+   
 }
 
-
+function afficherTour(){
+    if(cptTourJoueur == 1 ){
+        afficheActions.innerHTML = "C'est le tour du chat noir"
+    } 
+    if(cptTourJoueur == 2 ){
+        afficheActions.innerHTML = "C'est le tour du chat blanc"
+    } 
+    if(cptTourJoueur == 3 ){
+        afficheActions.innerHTML = "C'est le tour du chat marron"
+    } 
+    if(cptTourJoueur == 4 ){
+        afficheActions.innerHTML = "C'est le tour du chat roux"
+    } 
+}
 //////////////////////////////////////ATTAQUE//////////////////////////////////////
 
 function cibleJoueur(test){
@@ -44,23 +62,27 @@ function cibleJoueur(test){
         if(cptTourJoueur == 1){
             if(joueur1AttaqueSpe ==true){
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur1 utilise son attaque spéciale. Le monstre1 perd 20 pv !";
+                afficheActions.innerHTML = "Le chat noir utilise Double griffe. La pelote de laine perd 20 pv !";
                 Joueur1AttaqueSpe = false;
+                setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur1 attaque le monstre1,il perd 10 pv !";
+                afficheActions.innerHTML = "Le chat noir attaque la pelote de laine, elle perd 10 pv !";
+                setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 2){
             if(joueur2AttaqueSpe ==true){
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur2 utilise son attaque spéciale. Le monstre1 perd 20 pv !";
+                afficheActions.innerHTML = "Le chat blanc utilise son attaque spéciale. La pelotte de laine perd 20 pv !";
                 Joueur2AttaqueSpe = false;
+                setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur2 attaque le monstre1,il perd 10 pv !";
+                afficheActions.innerHTML = "Le chat blanc attaque la pelote de laine, elle perd 10 pv !";
+                setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 3){
@@ -68,21 +90,18 @@ function cibleJoueur(test){
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur3 utilise son attaque spéciale. Le monstre1 perd 20 pv !";
                 Joueur3AttaqueSpe = false;
+                setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur3 attaque le monstre1,il perd 10 pv !";
+                afficheActions.innerHTML = "Le chat marron attaque la pelote de laine, elle perd 10 pv !";
+                setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 4){
             if(joueur4AttaqueSpe ==true){
-                pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur4 utilise son attaque spéciale. Le monstre1 perd 20 pv !";
-                Joueur4AttaqueSpe = false;
-            }
-            else {
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur4 attaque le monstre1,il perd 10 pv !";
+                afficheActions.innerHTML = "Le chat roux attaque la pelote de laine, elle perd 10 pv !";
             }
         }
         cptTempsRiposte = cptTempsRiposte -1;
@@ -97,6 +116,10 @@ function cibleJoueur(test){
             pvMonstre1.innerHTML = "0";
             afficheActions.innerHTML = "Le monstre 1 est dead";
         }
+        
+        if(monstre1Etat == false && monstre2Etat == false && monstre3Etat == false){
+            victoire()
+        }
 
         if(cptTempsRiposte==0){
             setTimeout(function(){
@@ -107,6 +130,7 @@ function cibleJoueur(test){
             setTimeout(monstre3Attaque,10000);
             cptTempsRiposte = 4;
             cptTourJoueur = 1;
+            
         }
     }
 
@@ -116,10 +140,12 @@ function cibleJoueur(test){
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur1 utilise son attaque spéciale. Le monstre2 perd 20 pv !";
                 Joueur1AttaqueSpe = false;
+                setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
                 afficheActions.innerHTML = "Le joueur1 attaque le monstre2,il perd 10 pv !";
+                setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 2){
@@ -127,10 +153,12 @@ function cibleJoueur(test){
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur2 utilise son attaque spéciale. Le monstre2 perd 20 pv !";
                 Joueur2AttaqueSpe = false;
+                setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
                 afficheActions.innerHTML = "Le joueur2 attaque le monstre2,il perd 10 pv !";
+                setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 3){
@@ -138,19 +166,16 @@ function cibleJoueur(test){
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur3 utilise son attaque spéciale. Le monstre2 perd 20 pv !";
                 Joueur3AttaqueSpe = false;
+                setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
                 afficheActions.innerHTML = "Le joueur3 attaque le monstre2,il perd 10 pv !";
+                setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 4){
             if(joueur4AttaqueSpe ==true){
-                pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur4 utilise son attaque spéciale. Le monstre2 perd 20 pv !";
-                Joueur4AttaqueSpe = false;
-            }
-            else {
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
                 afficheActions.innerHTML = "Le joueur4 attaque le monstre2,il perd 10 pv !";
             }
@@ -167,6 +192,9 @@ function cibleJoueur(test){
             pvMonstre2.innerHTML = "0";
             afficheActions.innerHTML = "Le monstre 2 est dead";
         }
+        if(monstre1Etat == false && monstre2Etat == false && monstre3Etat == false){
+            victoire()
+        }
         if(cptTempsRiposte==0){
             setTimeout(function(){
                 afficheActions.innerHTML = "Les monstres attaquent !";
@@ -176,6 +204,7 @@ function cibleJoueur(test){
             setTimeout(monstre3Attaque,10000);
             cptTempsRiposte = 4;
             cptTourJoueur = 1;
+            
         }
     }
 
@@ -185,10 +214,12 @@ function cibleJoueur(test){
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur1 utilise son attaque spéciale. Le monstre3 perd 20 pv !";
                 Joueur1AttaqueSpe = false;
+                setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
                 afficheActions.innerHTML = "Le joueur1 attaque le monstre3,il perd 10 pv !";
+                setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 2){
@@ -196,10 +227,12 @@ function cibleJoueur(test){
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur2 utilise son attaque spéciale. Le monstre3 perd 20 pv !";
                 Joueur2AttaqueSpe = false;
+                setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
                 afficheActions.innerHTML = "Le joueur2 attaque le monstre3,il perd 10 pv !";
+                setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 3){
@@ -207,19 +240,16 @@ function cibleJoueur(test){
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 20;
                 afficheActions.innerHTML = "Le joueur3 utilise son attaque spéciale. Le monstre3 perd 20 pv !";
                 Joueur3AttaqueSpe = false;
+                setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
                 afficheActions.innerHTML = "Le joueur3 attaque le monstre3,il perd 10 pv !";
+                setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 4){
             if(joueur4AttaqueSpe ==true){
-                pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur4 utilise son attaque spéciale. Le monstre3 perd 20 pv !";
-                Joueur4AttaqueSpe = false;
-            }
-            else {
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
                 afficheActions.innerHTML = "Le joueur4 attaque le monstre3,il perd 10 pv !";
             }
@@ -236,6 +266,9 @@ function cibleJoueur(test){
             pvMonstre3.innerHTML = "0";
             afficheActions.innerHTML = "Le monstre 3 est dead";
         }
+        if(monstre1Etat == false && monstre2Etat == false && monstre3Etat == false){
+            victoire()
+        }
         if(cptTempsRiposte==0){
             setTimeout(function(){
                 afficheActions.innerHTML = "Les monstres attaquent !";
@@ -245,6 +278,7 @@ function cibleJoueur(test){
             setTimeout(monstre3Attaque,10000);
             cptTempsRiposte = 4;
             cptTourJoueur = 1;
+            
         }
     }
     if(monstre1Etat == false && monstre2Etat == false && monstre3Etat == false){
@@ -255,6 +289,7 @@ function cibleJoueur(test){
 
 
 function monstreCible(){                //fonction pour déterminer quel cible est attqué aleatoirement
+
     joueurAlea = Math.floor(Math.random() * 4) + 1;
     return joueurAlea;
 }
@@ -388,6 +423,7 @@ function monstre3Attaque(){
         };
     }
     cptTempsRiposte = 4;
+    setTimeout(afficherTour,2000);
 };
 
 
@@ -450,9 +486,11 @@ AttaqueSpeClick.onclick= function(){
     if(cptTourJoueur == 4){
         if(joueur4Mana>=15){
             manaJoueur4Affiche.innerHTML = parseInt(manaJoueur4Affiche.innerHTML) - 15;
-            joueur4AttaqueSpe = true;
-            afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
-            cibleJoueur();
+            pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML) + 15;
+            pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML) + 15;
+            pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML) + 15;
+            pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML) + 15;
+            afficheActions.innerHTML = "Le chat roux utilise Herb'agogo. Tous les chats récupèrent 15pv !";
         }
         else{
             afficheActions.innerHTML="Vous n'avez pas assez de PM, choisissez une autrea action"
@@ -497,4 +535,6 @@ DefenseClick.onclick = function() {
         cptTempsRiposte = 4;
         cptTourJoueur = 1;
     }
+    afficherTour();
 }
+

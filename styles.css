@@ -23,57 +23,58 @@ main{
 
 #cb{
     position: relative;
-    left: 100px;
-    top:150px;
+    left: 0%;
+    top:10%;
 }
 
 #cn{
     position: relative;
-    right: 150px;
+    right:60%;
+    bottom:10%
 }
 
 #cm{
     position:relative;
-    left:200px;
-    bottom:20%;
+    left:30%;
+    bottom:30%;
 }
 
 #cr{
     position:relative;
-    left:1px;
-    bottom:300px;
+    right:30%;
+    bottom:50%;
 }
 
 #pchit{
     position: relative;
-    right: 100px;
-    bottom: 5%;
+    right: 30%;
+    bottom: 30%;
 }
 #monstre3{
     position: relative;
-    right: 227px;
-    bottom: 5px;
+    right: 68%;
+    bottom: 27%;
 }
 
 #aspi{
     position: relative;
-    top: 30px;
+    bottom: 15%;
 }
 #monstre2{
     position: relative;
-    top: 40px;
-    right:135px;
+    bottom: 15% ;
+    right:40%;
 }
 
 #pel{
     position: relative;
-    right: 100px;
-    top:30%;
+    right: 30%;
+    top:10%;
 }
 #monstre1{
     position: relative;
-    right: 214px;
-    top:35%;
+    right: 65%;
+    top:15%;
 }
 
 footer {
@@ -111,3 +112,40 @@ footer {
     flex-direction:column;
 }
 
+#pvJoueur1{
+    color: green;
+}
+#manaJ1{
+    color: aqua;
+}
+
+#pvJoueur2{
+    color: green;
+}
+#manaJ2{
+    color: aqua;
+}
+
+#pvJoueur3{
+    color: green;
+}
+#manaJ3{
+    color: aqua;
+}
+
+#pvJoueur4{
+    color: green;
+}
+#manaJ4{
+    color: aqua;
+}
+
+.joueurs{
+    color: white;
+    background-color:black;
+}
+
+#al{
+    color: white;
+    background-color: black;
+}
