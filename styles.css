@@ -55,6 +55,11 @@ main{
     right: 68%;
     bottom: 27%;
 }
+#pvMonstre3{
+    position: relative;
+    bottom : 35%;
+    right : 35%;
+}
 
 #aspi{
     position: relative;
@@ -64,6 +69,11 @@ main{
     position: relative;
     bottom: 15% ;
     right:40%;
+}
+#pvMonstre2{
+    position: relative;
+    bottom:20%;
+    left:25%;
 }
 
 #pel{
@@ -76,11 +86,17 @@ main{
     right: 65%;
     top:15%;
 }
+#pvMonstre1{
+    position:relative;
+    top: 10%;
+    right : 30%;
+}
 
 footer {
     border-width: 3px;
     border-style:double;
     border-color:black;
+    background-color: black;
 }
 
 #aa{
@@ -90,7 +106,7 @@ footer {
 
     display: flex;
     justify-content:space-evenly;
-
+    background-color:white ;
 }
 
 #al{
@@ -100,6 +116,9 @@ footer {
 
     float: left;
     width:70%;
+}
+#afficheActions{
+    font-size:x-large;
 }
 
 #ac{

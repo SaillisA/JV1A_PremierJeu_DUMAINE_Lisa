@@ -1,3 +1,4 @@
+//on met les bouttons dans les variables
 const button1 = document.getElementById('monstre1');
 const button2 = document.getElementById('monstre2');
 const button3 = document.getElementById('monstre3');
@@ -5,23 +6,28 @@ const button4 = document.getElementById('AttaqueClick')
 const button5 = document.getElementById('AttaqueSpeClick');
 const button6 = document.getElementById('DefenseClick');
 
+//points de vie des monstres
 pvMonstre1 = document.getElementById("pvMonstre1");
 pvMonstre2 = document.getElementById("pvMonstre2");
 pvMonstre3 = document.getElementById("pvMonstre3");
 
+//pour savoir l'état des monstres : true = en vie et false = mort
 var monstre1Etat = true;
 var monstre2Etat = true;
 var monstre3Etat = true;
 
+//les points de vie des joueurs
 pvJoueur1 = document.getElementById("pvJoueur1");
 pvJoueur2 = document.getElementById("pvJoueur2");
 pvJoueur3 = document.getElementById("pvJoueur3");
 pvJoueur4 = document.getElementById("pvJoueur4");
 
+//pour savoir, l'etat des joueurs : true = en vie et false = mort
 var etatJ1 = true;
 var etatJ2 = true;
 var etatJ3 = true;
 var etatJ4 = true;
+
 
 afficheActions = document.getElementById("afficheActions");
 
@@ -32,11 +38,13 @@ var cptTempsRiposte = 4;        //Pour déterminer quand les monstres attaquent
 var joueurAlea = 0;
 var joueurCible = 0;
 
+//elle s'active quand tous les monstres sont morts, mais j'arrive pas a l'utiliser : ma condition ne fonctionne pas
 function victoire(){
     afficheActions.innerHTML = 'VOUS AVEZ GAGNE'
    
 }
 
+//pour afficher a quel chat c'est le tour
 function afficherTour(){
     if(cptTourJoueur == 1 ){
         afficheActions.innerHTML = "C'est le tour du chat noir"
@@ -53,6 +61,8 @@ function afficherTour(){
 }
 //////////////////////////////////////ATTAQUE//////////////////////////////////////
 
+//fonction qui est utilisé quand Attaque ou Attaqur Spéciale est cliqué.Elle est très grande et j'aurais pu
+//l'a découpé en plusieurs fonctions mais au moins elle fonctionne
 function cibleJoueur(test){
     if(monstre1Etat == true){button1.disabled=false};
     if(monstre2Etat == true){button2.disabled=false};
@@ -62,7 +72,7 @@ function cibleJoueur(test){
         if(cptTourJoueur == 1){
             if(joueur1AttaqueSpe ==true){
                 pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 20;
-                afficheActions.innerHTML = "Le chat noir utilise Double griffe. La pelote de laine perd 20 pv !";
+                afficheActions.innerHTML = "Le chat noir utilise Griffes Aiguisées! La pelote de laine perd 20 pv !";
                 Joueur1AttaqueSpe = false;
                 setTimeout(afficherTour,2000);
             }
@@ -74,8 +84,8 @@ function cibleJoueur(test){
         }
         if(cptTourJoueur == 2){
             if(joueur2AttaqueSpe ==true){
-                pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 20;
-                afficheActions.innerHTML = "Le chat blanc utilise son attaque spéciale. La pelotte de laine perd 20 pv !";
+                pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 15;
+                afficheActions.innerHTML = "Le chat blanc utilise Feulement Incessant! La pelotte de laine perd 15 pv !";
                 Joueur2AttaqueSpe = false;
                 setTimeout(afficherTour,2000);
             }
@@ -86,23 +96,15 @@ function cibleJoueur(test){
             }
         }
         if(cptTourJoueur == 3){
-            if(joueur3AttaqueSpe ==true){
-                pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur3 utilise son attaque spéciale. Le monstre1 perd 20 pv !";
-                Joueur3AttaqueSpe = false;
-                setTimeout(afficherTour,2000);
-            }
-            else {
-                pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
-                afficheActions.innerHTML = "Le chat marron attaque la pelote de laine, elle perd 10 pv !";
-                setTimeout(afficherTour,2000);
-            }
+            pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
+            afficheActions.innerHTML = "Le chat marron attaque la pelote de laine, elle perd 10 pv !";
+            setTimeout(afficherTour,2000);
+            
         }
         if(cptTourJoueur == 4){
-            if(joueur4AttaqueSpe ==true){
-                pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
-                afficheActions.innerHTML = "Le chat roux attaque la pelote de laine, elle perd 10 pv !";
-            }
+            pvMonstre1.innerHTML = parseInt(pvMonstre1.innerHTML)-10;
+            afficheActions.innerHTML = "Le chat roux attaque la pelote de laine, elle perd 10 pv !";
+            
         }
         cptTempsRiposte = cptTempsRiposte -1;
         cptTourJoueur = cptTourJoueur +1;
@@ -114,7 +116,7 @@ function cibleJoueur(test){
         if(pvM1<=0){
             monstre1Etat = false;
             pvMonstre1.innerHTML = "0";
-            afficheActions.innerHTML = "Le monstre 1 est dead";
+            afficheActions.innerHTML = "La pelote de laine est mort";
         }
         
         if(monstre1Etat == false && monstre2Etat == false && monstre3Etat == false){
@@ -138,47 +140,37 @@ function cibleJoueur(test){
         if(cptTourJoueur == 1){
             if(joueur1AttaqueSpe ==true){
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur1 utilise son attaque spéciale. Le monstre2 perd 20 pv !";
+                afficheActions.innerHTML = "Le chat noir utilise Griffes Aiguisées! L'Aspirateur perd 20 pv !";
                 Joueur1AttaqueSpe = false;
                 setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur1 attaque le monstre2,il perd 10 pv !";
+                afficheActions.innerHTML = "Le chat noir attaque l'Aspirateur, il perd 10 pv !";
                 setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 2){
             if(joueur2AttaqueSpe ==true){
-                pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur2 utilise son attaque spéciale. Le monstre2 perd 20 pv !";
+                pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 15;
+                afficheActions.innerHTML = "Le chat blanc utilise Feulement Incessant! L'Aspirateur perd 15 pv !";
                 Joueur2AttaqueSpe = false;
                 setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur2 attaque le monstre2,il perd 10 pv !";
+                afficheActions.innerHTML = "Le chat blanc attaque l'Aspirateur, il perd 10 pv !";
                 setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 3){
-            if(joueur3AttaqueSpe ==true){
-                pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur3 utilise son attaque spéciale. Le monstre2 perd 20 pv !";
-                Joueur3AttaqueSpe = false;
-                setTimeout(afficherTour,2000);
-            }
-            else {
-                pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur3 attaque le monstre2,il perd 10 pv !";
-                setTimeout(afficherTour,2000);
-            }
+            pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
+            afficheActions.innerHTML = "Le chat marron attaque l'Aspirateur, il perd 10 pv !";
+            setTimeout(afficherTour,2000);
         }
         if(cptTourJoueur == 4){
-            if(joueur4AttaqueSpe ==true){
-                pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur4 attaque le monstre2,il perd 10 pv !";
-            }
+            pvMonstre2.innerHTML = parseInt(pvMonstre2.innerHTML)-10;
+            afficheActions.innerHTML = "Le chat roux attaque l'Aspirateur, il perd 10 pv !";
         }
         cptTempsRiposte = cptTempsRiposte -1;
         cptTourJoueur = cptTourJoueur +1;
@@ -190,7 +182,7 @@ function cibleJoueur(test){
         if(pvM2<=0){
             monstre2Etat = false;
             pvMonstre2.innerHTML = "0";
-            afficheActions.innerHTML = "Le monstre 2 est dead";
+            afficheActions.innerHTML = "L'Aspirateur est mort'";
         }
         if(monstre1Etat == false && monstre2Etat == false && monstre3Etat == false){
             victoire()
@@ -212,47 +204,37 @@ function cibleJoueur(test){
         if(cptTourJoueur == 1){
             if(joueur1AttaqueSpe ==true){
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur1 utilise son attaque spéciale. Le monstre3 perd 20 pv !";
+                afficheActions.innerHTML = "Le chat noir utilise Griffes Aiguisées! Le Pchit-Pchit perd 20 pv !";
                 Joueur1AttaqueSpe = false;
                 setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur1 attaque le monstre3,il perd 10 pv !";
+                afficheActions.innerHTML = "Le chat noir attaque le Pchit-Pchit, il perd 10 pv !";
                 setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 2){
             if(joueur2AttaqueSpe ==true){
-                pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur2 utilise son attaque spéciale. Le monstre3 perd 20 pv !";
+                pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 15;
+                afficheActions.innerHTML = "Le chat blanc utilise Feulement Incessant! Le Pchit-Pchit perd 15 pv !";
                 Joueur2AttaqueSpe = false;
                 setTimeout(afficherTour,2000);
             }
             else {
                 pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur2 attaque le monstre3,il perd 10 pv !";
+                afficheActions.innerHTML = "Le chat blanc attaque le Pchit-Pchit, il perd 10 pv !";
                 setTimeout(afficherTour,2000);
             }
         }
         if(cptTourJoueur == 3){
-            if(joueur3AttaqueSpe ==true){
-                pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML) - 20;
-                afficheActions.innerHTML = "Le joueur3 utilise son attaque spéciale. Le monstre3 perd 20 pv !";
-                Joueur3AttaqueSpe = false;
-                setTimeout(afficherTour,2000);
-            }
-            else {
-                pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur3 attaque le monstre3,il perd 10 pv !";
-                setTimeout(afficherTour,2000);
-            }
+            pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
+            afficheActions.innerHTML = "Le chat marron attaque le Pchit-Pchit, il perd 10 pv !";
+            setTimeout(afficherTour,2000);
         }
         if(cptTourJoueur == 4){
-            if(joueur4AttaqueSpe ==true){
-                pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
-                afficheActions.innerHTML = "Le joueur4 attaque le monstre3,il perd 10 pv !";
-            }
+            pvMonstre3.innerHTML = parseInt(pvMonstre3.innerHTML)-10;
+            afficheActions.innerHTML = "Le chat roux attaque le Pchit-Pchit, il perd 10 pv !";
         }
         cptTempsRiposte = cptTempsRiposte -1;
         cptTourJoueur = cptTourJoueur +1;
@@ -264,7 +246,7 @@ function cibleJoueur(test){
         if(pvM3<=0){
             monstre3Etat = false;
             pvMonstre3.innerHTML = "0";
-            afficheActions.innerHTML = "Le monstre 3 est dead";
+            afficheActions.innerHTML = "Le Pchit-Pchit est mort";
         }
         if(monstre1Etat == false && monstre2Etat == false && monstre3Etat == false){
             victoire()
@@ -302,37 +284,41 @@ function monstre1Attaque(){              //fonction pour l'attaque des monstres
         if(joueurCible == 1){
             if(joueur1defense == false){
                 pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
-                afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 1 perd 10 pv !";
+                afficheActions.innerHTML = "La Pelote de laine attaque. Le chat noir 1 perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML = 'Le joueur1 a reussit a se défendre ';
+                afficheActions.innerHTML = 'Le chat noir a reussit à se défendre contre la Pelote de laine ';
+                joueur1defense = false;
             }
         };
         if(joueurCible == 2){
             if(joueur2defense == false){
                 pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
-                afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 2 perd 10 pv !";
+                afficheActions.innerHTML = "La Pelote de laine attaque. Le chat blanc perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML = 'Le joueur 2 a reussit a se defendre';
+                afficheActions.innerHTML = 'Le chat blanc a reussit à se defendre contre la Pelote de laine';
+                joueur2defense = false;
             }
         };
         if(joueurCible == 3){
             if(joueur3defense == false){
                 pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
-                afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 3 perd 10 pv !";
+                afficheActions.innerHTML = "La Pelote de laine attaque. Le chat marron perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML = 'Le joueu3 a reussit a se defendre';
+                afficheActions.innerHTML = 'Le chat marron a reussit a se defendre contre la Pelote de laine';
+                joueur3defense = false
             }
         };
         if(joueurCible == 4){
             if(joueur4defense == false){
                 pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
-                afficheActions.innerHTML = "Le monstre1 attaque. Le joueur 4 perd 10 pv !";
+                afficheActions.innerHTML = "La Pelote de laine attaque. Le chat roux 4 perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML= 'Le joueur4 a reussit a se defendre';
+                afficheActions.innerHTML= 'Le chat roux a reussit à se defendre contre la Pelote de laine';
+                joueur4defense = false;
             }
         };
     }
@@ -345,37 +331,41 @@ function monstre2Attaque(){
         if(joueurCible == 1){
             if(joueur1defense == false){
                 pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
-                afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 1 perd 10 pv !";
+                afficheActions.innerHTML = "L'Aspirateur attaque. Le chat noir 1 perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML = 'Le joueur1 a reussit a se défendre ';
+                afficheActions.innerHTML = "Le chat noir a reussit à se défendre contre l'Aspirateur";
+                joueur1defense = false;
             }
         };
         if(joueurCible == 2){
             if(joueur2defense == false){
                 pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
-                afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 2 perd 10 pv !";
+                afficheActions.innerHTML = "L'Aspirateur attaque. Le chat blanc 2 perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML = 'Le joueur 2 a reussit a se defendre';
+                afficheActions.innerHTML = "Le chat blanc a reussit à se défendre contre l'Aspirateur";
+                joueur2defense = false;
             }
         };
         if(joueurCible == 3){
             if(joueur3defense == false){
                 pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
-                afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 3 perd 10 pv !";
+                afficheActions.innerHTML = "L'Aspirateur attaque. Le chat marron 3 perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML = 'Le joueu3 a reussit a se defendre';
+                afficheActions.innerHTML = "Le chat marron a reussit à se défendre contre l'Aspirateur";
+                joueur3defense = false;
             }
         };
         if(joueurCible == 4){
             if(joueur4defense == false){
             pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre2 attaque. Le joueur 4 perd 10 pv !";
+            afficheActions.innerHTML = "L'Aspirateur attaque. Le chat roux perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML= 'Le joueur4 a reussit a se defendre';
+                afficheActions.innerHTML= "Le chat roux a reussit à se défendre contre l'Aspirateur";
+            joueur4defense = false;
             }
         }
     }
@@ -388,37 +378,41 @@ function monstre3Attaque(){
         if(joueurCible == 1){
             if(joueur1defense == false){
                 pvJoueur1.innerHTML = parseInt(pvJoueur1.innerHTML)-10;
-                afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 1 perd 10 pv !";
+                afficheActions.innerHTML = "Le Pchit-Pchit attaque. Le chat noir perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML = 'Le joueur1 a reussit a se défendre ';
+                afficheActions.innerHTML = 'Le chat noir a reussit à se défendre contre le Pchit-Pchit';
+                joueur1defense = false;
             }
         };
         if(joueurCible == 2){
             if(joueur2defense == false){
                 pvJoueur2.innerHTML = parseInt(pvJoueur2.innerHTML)-10;
-                afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 2 perd 10 pv !";
+                afficheActions.innerHTML = "Le Pchit-Pchit attaque. Le chat blanc perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML = 'Le joueur 2 a reussit a se defendre';
+                afficheActions.innerHTML = 'Le joueur 2 a reussit à se defendre contre le Pchit-Pchit';
+                joueur2defense = false
             }
         };
         if(joueurCible == 3){
             if(joueur3defense == false){
                 pvJoueur3.innerHTML = parseInt(pvJoueur3.innerHTML)-10;
-                afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 3 perd 10 pv !";
+                afficheActions.innerHTML = "Le Pchit-Pchit attaque. Le chat marron perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML = 'Le joueu3 a reussit a se defendre';
+                afficheActions.innerHTML = 'Le chat marron a reussit à se defendre contre le Pchit-Pchit';
+                joueur3defense = false
             }
         };
         if(joueurCible == 4){
             if(joueur4defense == false){
             pvJoueur4.innerHTML = parseInt(pvJoueur4.innerHTML)-10;
-            afficheActions.innerHTML = "Le monstre3 attaque. Le joueur 4 perd 10 pv !";
+            afficheActions.innerHTML = "Le Pchit-Pchit attaque. Le chat roux perd 10 pv !";
             }
             else{
-                afficheActions.innerHTML= 'Le joueur4 a reussit a se defendre';
+                afficheActions.innerHTML= 'Le chat roux a reussit à se defendre contre lePchit-Pchit';
+                joueur4defense = false
             }
         };
     }
@@ -462,8 +456,8 @@ AttaqueSpeClick.onclick= function(){
         }
     }
     if(cptTourJoueur == 2){
-        if(joueur2Mana>=15){
-            manaJoueur2Affiche.innerHTML = parseInt(manaJoueur2Affiche.innerHTML) - 15;
+        if(joueur2Mana>=10){
+            manaJoueur2Affiche.innerHTML = parseInt(manaJoueur2Affiche.innerHTML) - 10;
             joueur2AttaqueSpe = true;
             afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
             cibleJoueur();
@@ -473,11 +467,15 @@ AttaqueSpeClick.onclick= function(){
         }
     }
     if(cptTourJoueur == 3){
-        if(joueur3Mana>=15){
-            manaJoueur3Affiche.innerHTML = parseInt(manaJoueur3Affiche.innerHTML) - 15;
-            joueur3AttaqueSpe = true;
-            afficheActions.innerHTML = "Cliquez sur le monstre que vous souhaitez attaquer";
-            cibleJoueur();
+        if(joueur3Mana>=20){
+            manaJoueur3Affiche.innerHTML = parseInt(manaJoueur3Affiche.innerHTML) - 20;
+            afficheActions.innerHTML = "Le chat marron utilise poil de fer et protège tous les chats lors de la prochaine attaque des monstres."
+            joueur1defense=true;
+            joueur2defense=true;
+            joueur3defense=true;
+            joueur4defense=true;
+            cptTempsRiposte = cptTempsRiposte -1;
+            cptTourJoueur = cptTourJoueur +1;
         }
         else{
             afficheActions.innerHTML="Vous n'avez pas assez de PM, choisissez une autrea action"
@@ -495,6 +493,9 @@ AttaqueSpeClick.onclick= function(){
         else{
             afficheActions.innerHTML="Vous n'avez pas assez de PM, choisissez une autrea action"
         }
+        cptTempsRiposte = cptTempsRiposte -1;
+        cptTourJoueur = cptTourJoueur +1;
+        
     }
 }
 
@@ -509,20 +510,23 @@ var joueur4defense = false;
 DefenseClick.onclick = function() {
     if (cptTourJoueur == 1){
         joueur1defense = true;
-        afficheActions.innerHTML = "Le joueur1 lève son bouclier pour parer la prochaine attaque des monstres !";
-        }
+        afficheActions.innerHTML = "Le chat noir se prépare à parer la prochaine attaque des monstres !";
+        setTimeout(afficherTour,2000);    
+    }
     if (cptTourJoueur == 2){
         joueur2defense =true;
-        afficheActions.innerHTML = "Le joueur2 lève son bouclier pour parer la prochaine attaque des monstres !";
-        }
+        afficheActions.innerHTML = "Le chat blanc se prépare à parer la prochaine attaque des monstres !";
+        setTimeout(afficherTour,2000);
+    }
     if (cptTourJoueur == 3){
         joueur3defense = true;
-        afficheActions.innerHTML = "Le joueur3 lève son bouclier pour parer la prochaine attaque des monstres !";
-        }
+        afficheActions.innerHTML = "Le chat marron se prépare à parer la prochaine attaque des monstres !";
+        setTimeout(afficherTour,2000);
+    }
     if (cptTourJoueur == 4){
         joueur4defense = true;
-        afficheActions.innerHTML = "Le joueur4 lève son bouclier pour parer la prochaine attaque des monstres !";
-        }
+        afficheActions.innerHTML = "Le chat roux se prépare à parer la prochaine attaque des monstres !";  
+    }
     cptTempsRiposte = cptTempsRiposte -1;
     cptTourJoueur = cptTourJoueur +1;
     if(cptTempsRiposte==0){
@@ -535,6 +539,5 @@ DefenseClick.onclick = function() {
         cptTempsRiposte = 4;
         cptTourJoueur = 1;
     }
-    afficherTour();
 }
 
